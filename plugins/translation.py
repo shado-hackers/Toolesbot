@@ -46,7 +46,7 @@ I Am Telegram TOOLS Bot.
 **IMPORTANT** [HOW TO USE](https://telegra.ph/HOW-TO-AVOID-BAN-12-14)
 
 """
- START_BUTTONS = InlineKeyboardMarkup(
+     START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('support!​​👩‍💻", url="t.me/OMG_info')
         ],[
@@ -58,7 +58,7 @@ I Am Telegram TOOLS Bot.
  ) 
  
 
-HELP_BUTTONS = InlineKeyboardMarkup(
+    HELP_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Back', callback_data='home'),
         InlineKeyboardButton('About', callback_data='about')
