@@ -38,3 +38,7 @@ class Config(object):
     
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "toolesbot")
     
+    SESSION_NAME = os.environ.get("SESSION_NAME", "UploadLinkToFileBot")
+
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -100))
+    
