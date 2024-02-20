@@ -5,16 +5,9 @@ from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 import wget
 import os 
 
-@app.on_message(filters.command('start'))
-async def start_msg(client,message):
-    await message.reply('**Hey '+message.from_user.first_name+"  🖐**\n\n__I'm TOOLS Bot, I can  DO many things build bu @shado_hackers")
-    
-@app.on_message(filters.command('help'))
-async def help_msg(client,message):
-    await message.reply(nothing more )
-     
-@app.on_message(filters.command('about'))
-async def about_msg(client,message):
-    await message.reply('__Developer : @shado_hackers (:\n\nSource Code : [GitHub Repo](https://github.com')
+@Client.on_message(filters.private & filters.command("start"))
+async def start(bot, update):
+    await update.reply_text(
+        text=f"Hello {update.from_user.mention}, i am toolesbot",
+        disable_web_page_preview=True,
   
-    
