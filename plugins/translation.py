@@ -11,6 +11,15 @@ I Am Telegram TOOLS Bot.
 
 **Use Help Button To Know How To Use Me**
 """
-  
+ START_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('text=f"Projects Channel url="https://t.me/omg_info"')
+        ],[
+        InlineKeyboardButton('Help', callback_data='help'),
+        InlineKeyboardButton('About', callback_data='about')
+        ],[
+        InlineKeyboardButton('Close', callback_data='close')
+        ]]
+ ) 
  
 
