@@ -55,9 +55,7 @@ I Am Telegram TOOLS Bot.
         ],[
         InlineKeyboardButton('Close', callback_data='close')
         ]]
- ) 
- 
-
+    )
     HELP_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Back', callback_data='home'),
