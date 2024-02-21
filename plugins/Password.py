@@ -1,7 +1,7 @@
 import random, os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
+from pyrogram import enums
 
 @Client.on_message(filters.command(["password", 'genpw']))
 async def password(bot, update):
