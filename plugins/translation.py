@@ -42,6 +42,19 @@ I Am Telegram TOOLS Bot.
 
 
 """
-    
+    CHECK_LINK = "⚡️"
+    NOT_AUTH_TXT = "<b>Error : </b>\n\n<code>You are not Authorized to use this bot.</code>"
+    RESULTS_TXT = "👀 Results:"
+    NO_RESULTS = "❌ No Results"
+    DESCRIPTION = "Duration: {} || {}"
+    DEFAULT_TITLE = "create by Lusifer"
+    DEFAULT_LINK = "https://t.me/shado_hackers"
+    DEFAULT_THUMB_URL = "https://telegra.ph/file/3f4ed58e53927dbf5b2a8.jpg"
+    DEFAULT_DESCRIPTION = "Link: lusifer | Telegram"
+    DEV_TITLE = "support information"
+    DEV_THUMB_URL = "https://telegra.ph/file/a7823975c07961870cc45.jpg"
+    DEV_LINK = "https://t.me/OMG_info"
+    DEV_DESCRIPTION = "Name: OMG INFO | Telegram"
+    SHARE_BUTTON_TEXT = "Hi.. 👋\nCheckout : @{username}\nFor search and download TouTube Videos"    
     
     
