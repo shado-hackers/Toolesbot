@@ -1,6 +1,6 @@
 from pyrogram import *
 import requests as req
-from Config import *
+#from Config import *
 from pyrogram import Client as app
 from pyrogram import filters
 
