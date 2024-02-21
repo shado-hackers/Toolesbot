@@ -1,6 +1,6 @@
 import requests as req
-from pyrogram import *
-from Config import *
+from pyrogram import Client as app
+from plugins.info import *
 import os
 
 
