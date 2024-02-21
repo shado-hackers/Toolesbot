@@ -1,6 +1,6 @@
 from pyrogram import *
 import requests as req
-#from Config import *
+from plugins.info import head,ibase_url
 from pyrogram import Client as app
 from pyrogram import filters
 
