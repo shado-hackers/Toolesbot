@@ -3,7 +3,9 @@ from pyrogram import Client as app
 from plugins.config import *
 import os
 from plugins.info import base_currency,base_url,API_KEY
- 
+from pyrogram import *
+from pyrogram import filters
+
 url=base_url+base_currency
 
 
