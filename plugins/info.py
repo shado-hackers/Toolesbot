@@ -23,3 +23,6 @@ API_KEY='d79fe6458d9a29da04d15e3e' #if you have API replace this with your API K
 
 base_url='https://v6.exchangerate-api.com/v6/'+API_KEY+'/latest/'
 base_currency='INR' 
+
+ibase_url='https://ifsc.razorpay.com/' 
+head="**Detailed InFo**\n...................\n\n"
