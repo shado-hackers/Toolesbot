@@ -21,3 +21,4 @@ spotipy
 lyricsgenius
 apscheduler
 mutagen
+urllib3
