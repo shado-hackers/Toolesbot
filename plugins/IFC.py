@@ -1,7 +1,7 @@
-
 from pyrogram import Client
 import requests as req
 from plugins.info import head, ibase_url
+from pyrogram import filters
 
 @Client.on_message(filters.command("ifsc"))
 async def ifsc_data(client, message):
