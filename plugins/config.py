@@ -41,4 +41,9 @@ class Config(object):
     SESSION_NAME = os.environ.get("SESSION_NAME", "UploadLinkToFileBot")
 
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -100))
-    
+    API_KEY='d79fe6458d9a29da04d15e3e' #if you have API replace this with your API KEY
+
+    base_url='https://v6.exchangerate-api.com/v6/'+API_KEY+'/latest/'
+    base_currency='INR'
+
+
