@@ -2,7 +2,7 @@ import requests as req
 from pyrogram import Client as app
 from plugins.config import *
 import os
-from plugins.info import base_currency,base_url
+from plugins.info import base_currency,base_url,API_KEY
  
 url=base_url+base_currency
 
