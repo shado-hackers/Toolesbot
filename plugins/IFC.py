@@ -17,7 +17,7 @@ async def ifsc_data(client,message):
    query=message.text.upper()
    try:
     http = urllib3.PoolManager()
-    url_request=http.request('GET', API+query)
+    url_request=requests.get( API+query)
     url_json=url_request.data.decode('utf-8')
     url_json=json.loads(url_json)
     
