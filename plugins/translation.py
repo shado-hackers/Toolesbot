@@ -14,16 +14,17 @@ I Am Telegram TOOLS Bot.
     HELP_TEXT = """
 𒊹︎︎︎ I AM A TOOL BOT 
 ➪ check below help menu 
-𒊹︎︎︎ /calendar check calendar
-
-➪ /carbon  to create carbon 
-𒊹︎︎︎ /imdb check on imdb 
-
-➪ /json check json 
-
-𒊹︎︎︎ How To Show Thumbnail 
-
-➪ Send /showthumb To View Custom Thumbnail 
+ /calendar check calendar
+ /carbon  to create carbon 
+/imdb check on imdb 
+/json check json 
+/genius getting lyrics from genius
+/info show info
+/ipinfo  details of IP address
+/password generator password
+/tgmedia to create telegraph
+/short url shortner 
+/ytthumb download YouTube thambnail 
 ➪ How to use bot to avoid ban ❗❗ **[check out](https://telegra.ph/HOW-TO-AVOID-BAN-12-14)**
  
 """
