@@ -7,7 +7,7 @@ from pyrogram.types import Message
 #client = Client("my_bot", api_id=123456, api_hash="0123456789abcdef")
 
 # Define the command handler.
-@client.on_message(filters.command("ifsc"))
+@Client.on_message(filters.command("ifsc"))
 async def ifsc_handler(client: Client, message: Message):
     # Get the IFSC code from the message.
     ifsc_code = message.text.split()[1]
