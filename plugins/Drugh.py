@@ -5,7 +5,7 @@ import os
 from pyrogram import Client, filters
 
 basepoint='https://api.fda.gov/drug/label.json?search=active_ingredient:"'
-endpoint='"&limit=1'
+endpoint='"&limit=50'
 
     
 @Client.on_message(filters.text & filters.command(["drugs"]) )
