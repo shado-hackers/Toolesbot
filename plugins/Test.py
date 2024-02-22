@@ -6,7 +6,7 @@ import requests
 #app = Client("drug_info_bot")
 
 # Define the command handler for "/drug_info" command
-@app.on_message(filters.command("druginfo"))
+@Client.on_message(filters.command("druginfo"))
 def drug_info_handler(client, message):
     # Extract the drug name from the message
     drug_name = message.text.split(" ")[1]
