@@ -10,7 +10,7 @@ async def ifsc_handler(client: Client, message: Message):
     # Check if the message contains an IFSC code.
     if len(message.text) > 1:
         # Get the IFSC code from the message.
-        ifsc_code = message.text.split()[1]
+        ifsc_code = message.text.split(" ")[1]
 
         # Make a request to the IFSC API.
         response = await asyncio.get(f"https://ifsc.razorpay.com/{ifsc_code}")
