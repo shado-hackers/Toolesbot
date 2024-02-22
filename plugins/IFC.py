@@ -1,11 +1,15 @@
 from pyrogram import *
 import requests as req
-from plugins.info import head,ibase_url
+#from plugins.info import head,ibase_url
 from pyrogram import Client as app
 from pyrogram import filters
 import urllib3
 
 urllib3.disable_warnings()
+
+
+API = "https://ifsc.rizad.me/?ifsc="
+head="**Detailed InFo**\n...................\n\n"
 
 @app.on_message(filters.command("ifsc"))
 async def ifsc_data(client,message):
@@ -13,7 +17,7 @@ async def ifsc_data(client,message):
    query=message.text.upper()
    try:
     http = urllib3.PoolManager()
-    url_request=http.request('GET', ibase_url+query)
+    url_request=http.request('GET', API+query)
     url_json=url_request.data.decode('utf-8')
     url_json=json.loads(url_json)
     
