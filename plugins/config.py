@@ -43,7 +43,7 @@ class Config(object):
 
     LOGGER = logging
 
-    #OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+    OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "")
     
@@ -56,7 +56,7 @@ class Config(object):
 
     base_url='https://v6.exchangerate-api.com/v6/'+API_KEY+'/latest/'
     base_currency='INR'
-    ADMINS = int(environ.get("ADMINS", ""))
+    #ADMINS = int(environ.get("ADMINS", ""))
     DB_URI = environ.get("DB_URI", "")
     DB_NAME = environ.get("DB_NAME", "chatgptvjbot")
     OPENAI_API = environ.get("OPENAI_API", "")
