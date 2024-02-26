@@ -26,3 +26,7 @@ base_currency='INR'
 
 ibase_url='https://ifsc.razorpay.com/' 
 head="**Detailed InFo**\n...................\n\n"
+DB_URI = environ.get("DB_URI", "")
+DB_NAME = environ.get("DB_NAME", "chatgptvjbot")
+OPENAI_API = environ.get("OPENAI_API", "")
+AI = is_enabled((environ.get("AI","True")), False)
