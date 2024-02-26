@@ -6,7 +6,7 @@ import string
 import asyncio
 from pyrogram import Client, filters
 from asyncio import TimeoutError
-#from plugins.config import LOG_CHANNEL
+from plugins.config import *
 from plugins.database import db
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, ForceReply
