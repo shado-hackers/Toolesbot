@@ -13,8 +13,11 @@ async def send_message_in_chunks(client, chat_id, text):
 
 @Client.on_message(filters.private & filters.text & ~filters.command(['ask', 'gpt']))
 async def ai_answer(client, message):
-    user_id = message.from_user.id
-    msg = await message.reply_text("**ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ᴡʜɪʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ ʀᴇsᴘᴏɴᴅs ᴛᴏ ʏᴏᴜʀ ǫᴜᴇʀʏ . . .**")
+   # if AI == True: 
+        user_id = message.from_user.id
+        if user_id:
+            try:
+                msg = await message.reply_text("**ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ᴡʜɪʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ ʀᴇsᴘᴏɴᴅs ᴛᴏ ʏᴏᴜʀ ǫᴜᴇʀʏ . . .**")
                 users_message = message.text
                 user_id = message.from_user.id
                 response = openai.ChatCompletion.create(
