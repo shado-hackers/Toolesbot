@@ -1,7 +1,14 @@
 import re
 from os import environ
 
-
+id_pattern = re.compile(r'^.\d+$')
+def is_enabled(value, default):
+    if value.lower() in ["true", "yes", "1", "enable", "y"]:
+        return True
+    elif value.lower() in ["false", "no", "0", "disable", "n"]:
+        return False
+    else:
+        return default
 
 
 GENIUS_API = "RWmW7Y915_oCss4BglqUA6pU2B767XP6iBHdWsH4bGCHke1VbuZw1_BEdamn4kEC" # get it from https://genius.com/developers
@@ -21,4 +28,4 @@ head="**Detailed InFo**\n...................\n\n"
 DB_URI = environ.get("DB_URI", "")
 DB_NAME = environ.get("DB_NAME", "chatgptvjbot")
 OPENAI_API = environ.get("OPENAI_API", "")
-AI = environ.get("AI","True")
+AI = is_enabled((environ.get("AI","True")),
