@@ -6,7 +6,7 @@ import string
 import asyncio
 from pyrogram import Client, filters
 from asyncio import TimeoutError
-from plugins.config import LOG_CHANNEL
+#from plugins.config import LOG_CHANNEL
 from plugins.database import db
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, ForceReply
@@ -28,7 +28,7 @@ Nᴀᴍᴇ - {}</b>
 async def start_message(c,m):
     await db.is_user_exist(m.from_user.id)
     await db.add_user(m.from_user.id, m.from_user.first_name)
-    await c.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
+    await c.send_message(Config.LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
     await m.reply_photo(f"https://te.legra.ph/file/119729ea3cdce4fefb6a1.jpg",
         caption="**ʜɪ** 👋\n\n**ɪ ᴀᴍ ᴀ ᴄʜᴀᴛɢᴘᴛ ʙᴏᴛ**\n\n⭕ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ :-** **[OMG INFO](https://t.me/OMG_INFO)**",
         reply_markup=InlineKeyboardMarkup(
