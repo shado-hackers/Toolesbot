@@ -32,7 +32,7 @@ async def broadcast_messages(user_id, message):
         return False, "Error"
 
 
-@Client.on_message(filters.command("broadcast")
+@Client.on_message(filters.command("broadcast"))
 async def verupikkals(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
