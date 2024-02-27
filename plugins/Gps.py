@@ -29,14 +29,14 @@ async def is_register_admin(chat, user):
 GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 
 
-@client.on_message(filters.command("gps"))
+@Client.on_message(filters.command("gps"))
 async def _(client, message):
     if message.forward_from:
         return
     if message.chat.type == "group":
         if not (await is_register_admin(message.chat, message.from_user.id)):
             await message.reply(
-                "You are not Admin. So, You can't use this. Try in my inbox"
+                "You are not Admin. So, You can't use this."
             )
             return
 
