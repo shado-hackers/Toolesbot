@@ -1,0 +1,84 @@
+
+from io import BytesIO
+import os
+import time
+
+import aiohttp
+from pyrogram import *
+from pyrogram.types import *
+from pyrogram.errors import *
+from pyrogram.file_id import FileId
+OPENWEATHERMAP_ID
+
+from pyrogram import Client, filters
+import requests
+import json
+
+
+async def is_register_admin(chat, user):
+    if isinstance(chat, (Channel, Supergroup)):
+        return isinstance(
+            (
+                await tbot.get_chat_member(chat.id, user.id)
+            ),
+            (ChatMemberAdministrator, ChatMemberOwner),
+        )
+    if isinstance(chat, User):
+        return True
+
+
+@Client.on_message(filters.command("weather"))
+async def weather(client: Client, message: Message):
+    if not message.reply_to_message:
+        await message.reply_text("Reply to a text message to get weather info of that location.")
+        return
+    input_str = message.reply_to_message.text
+    sample_url = "https://api.openweathermap.org/data/2.5/weather?q={}&APPID={}&units=metric"
+    async with aiohttp.ClientSession() as session:
+        response_api_zero = await session.get(
+            sample_url.format(input_str, OPENWEATHERMAP_ID)
+        )
+    response_api = await response_api_zero.json()
+    if response_api["cod"] == 200:
+        country_code = response_api["sys"]["country"]
+        country_time_zone = int(response_api["timezone"])
+        sun_rise_time = int(response_api["sys"]["sunrise"]) + country_time_zone
+        sun_set_time = int(response_api["sys"]["sunset"]) + country_time_zone
+        await message.reply_text(
+            """Location: {}
+Temperature ☀️: {}°С
+    minimium: {}°С
+    maximum : {}°С
+Humidity 🌤: {}%
+Wind 💨: {}m/s
+Clouds ☁️: {}hpa
+Sunrise 🌤: {} {}
+Sunset 🌝: {} {}""".format(
+                input_str,
+                response_api["main"]["temp"],
+                response_api["main"]["temp_min"],
+                response_api["main"]["temp_max"],
+                response_api["main"]["humidity"],
+                response_api["wind"]["speed"],
+                response_api["clouds"]["all"],
+                # response_api["main"]["pressure"],
+                time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_rise_time)),
+                country_code,
+                time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_set_time)),
+                country_code,
+            )
+        )
+    else:
+        await message.reply_text(response_api["message"])
+
+
+@Client.on_message(filters.command("wttr"))
+async def wttr(client: Client, message: Message):
+    input_str = message.text.split(None, 1)[1]
+    sample_url = "https://wttr.in/{}.png"
+    async with aiohttp.ClientSession() as session:
+        response_api_zero = await session.get(sample_url.format(input_str))
+        response_api = await response_api_zero.read()
+        file = BytesIO(response_api)
+        file.name = "weather.png"
+        await message.reply_photo(photo=file)
