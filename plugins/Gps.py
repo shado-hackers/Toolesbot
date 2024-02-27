@@ -49,7 +49,7 @@ async def _(client, message):
         longitude = geoloc.longitude
         latitude = geoloc.latitude
         gm = "https://www.google.com/maps/search/{},{}".format(latitude, longitude)
-        await app.send_location(
+        await Client.send_location(
             message.chat.id,
             latitude,
             longitude,
