@@ -24,6 +24,10 @@ ID - <code>{}</code>
 
 Nᴀᴍᴇ - {}</b>
 """
+
+CMD = ["/", "."]
+
+
 @Client.on_message(filters.command(["start"]))
 async def start_message(c,m):
     await db.is_user_exist(m.from_user.id)
@@ -56,3 +60,11 @@ async def about(bot, update):
         text=Translation.ABOUT_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
      )  
+
+@Client.on_message(filters.command("ping", CMD))
+async def ping(_, message):
+    start_t = time.time()
+    rm = await message.reply_text("...")
+    end_t = time.time()
+    time_taken_s = (end_t - start_t) * 1000
+    await rm.edit(f"Pong!\n{time_taken_s:.3f} ms")
