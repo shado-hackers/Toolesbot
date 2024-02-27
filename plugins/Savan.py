@@ -8,9 +8,9 @@ async def song(client, message):
     except:
         return await message.reply("/saavn requires an argument.")
     if args.startswith(" "):
-        await message.reply("/saavn requires an argument.")
+        await message.reply("/saavn 𝚛𝚎𝚚𝚞𝚒𝚛𝚎𝚜 𝚊𝚗 𝚊𝚛𝚐𝚞𝚖𝚎𝚗𝚝.")
         return ""
-    pak = await message.reply('Downloading...')
+    pak = await message.reply('𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐...')
     try:
         r = requests.get(f"https://savan.vercel.app/search/songs?query={args}&page=1&limit=10").json()
     except Exception as e:
