@@ -23,12 +23,12 @@ def drug_info_handler(client, message):
     data = response.json()
 
     # Extract the relevant information from the JSON response
-    drug_info = f"**{data['name']}**\n\n"
-    drug_info += f"**CAS Number:** {data['cas_number']}\n"
-    drug_info += f"**Description:** {data['description']}\n"
-    drug_info += f"**Drug Interactions:** {data['drug_interactions']}\n"
-    drug_info += f"**Side Effects:** {data['side_effects']}\n"
-    drug_info += f"**Dosage:** {data['dosage']}\n"
+    drug_info = f"{data['name']}\n\n"
+    drug_info += f"CAS Number: {data['cas_number']}\n"
+    drug_info += f"Description: {data['description']}\n"
+    drug_info += f"Drug Interactions: {data['drug_interactions']}\n"
+    drug_info += f"Side Effects: {data['side_effects']}\n"
+    drug_info += f"Dosage: {data['dosage']}\n"
 
     # Send the drug information to the user
     message.reply_text(drug_info)
