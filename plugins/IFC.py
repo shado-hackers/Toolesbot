@@ -34,7 +34,7 @@ async def ifsc_data(client: Client, message):
 
         result = head + '' + bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift + ''
 
-        await message.reply(result)
+        await m.edit_text(text, parse_mode=enums.ParseMode.HTML)
     except Exception as e:
         await message.reply("Sorry ,'"+query+"' is Invalid IFSC Code 😕")
         await message.reply("if you're facing a error or else ping @shado_hackers 🤝")
