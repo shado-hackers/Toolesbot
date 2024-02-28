@@ -36,7 +36,7 @@ async def ifsc_data(client: Client, message):
         bankcd = 'Bank Code :   ' + str(url_json['BANKCODE']) + '\n'
         ifsc = 'IFSC :   ' + str(url_json['IFSC']) + '\n'
 
-         result f"""head + '' + bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift + """
+         result f"""head + '' +bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift+'' """
 
         await m.edit_text(result, parse_mode=enums.ParseMode.HTML)
     except Exception as e:
