@@ -35,7 +35,7 @@ branch: {response['branch']}
 dist: {response['District']}
 State: {response['state']}
 Bank: {response['Bank']}"""
-           await m.edit_text(text, parse_mode=enums.ParseMode.HTML)
+        await m.edit_text(text, parse_mode=enums.ParseMode.HTML)
     except Exception as e:
         await m.edit_text("Sorry ,'"+ifsc_data+"' is Invalid IFSC Code 😕")
         await m.edit_text("if you're facing a error or else ping @shado_hackers 🤝")
