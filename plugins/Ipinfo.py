@@ -5,6 +5,7 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from functools import partial
+from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client as Ntbot
 
@@ -47,6 +48,6 @@ Reverse: {response['reverse']}
 User is on Mobile: {response['mobile']}
 Proxy: {response['proxy']}
 Hosting: {response['hosting']}"""
-        await m.edit_text(text, parse_mode="markdown")
+        await m.edit_text(text, parse_mode=enums.ParseMode.HTML)
     except:
         await m.edit_text("Unable To Find Info!")
