@@ -28,7 +28,7 @@ GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 
 
 @Client.on_message(filters.command("gps"))
-async def _(client: Client, message: pyrogram.types.Message):
+async def _(client, message):
     if message.forward_from:
         return
     if message.chat.type == "group":
