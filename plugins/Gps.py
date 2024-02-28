@@ -2,8 +2,6 @@ from geopy.geocoders import Nominatim
 from pyrogram import Client, filters
 
 
-
-
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
@@ -30,14 +28,12 @@ GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 
 
 @Client.on_message(filters.command("gps"))
-async def _(client, message):
+async def _(client: Client, message: types.Message):
     if message.forward_from:
         return
     if message.chat.type == "group":
         if not (await is_register_admin(message.chat, message.from_user.id)):
-            await message.reply(
-                "You are not Admin. So, You can't use this."
-            )
+            await message.reply("You are not Admin. So, You can't use this.")
             return
 
     args = message.text.split()[1]
@@ -48,18 +44,17 @@ async def _(client, message):
         geoloc = geolocator.geocode(location)
         longitude = geoloc.longitude
         latitude = geoloc.latitude
-        gm = "https://www.google.com/maps/search/{},{}".format(latitude, longitude)
-        await Client.send_location(
+        gm = f"https://www.google.com/maps/search/{latitude},{longitude}"
+        await client.send_location(
             message.chat.id,
             latitude,
             longitude,
             disable_notification=True,
         )
         await message.reply(
-            "Open with: [Google Maps]({})".format(gm),
+            f"Open with: [Google Maps]({gm})",
             disable_web_page_preview=True,
         )
     except Exception as e:
         print(e)
         await message.reply("I can't find that")
-
