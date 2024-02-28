@@ -6,13 +6,18 @@ from pyrogram.types import Message
 from pyrogram import enums
 
 API='https://ifsc.razorpay.com/' 
-head="**Detailed InFo**\n...................\n\n"
+head="Detailed InFo\n...................\n\n"
  
 
 @Client.on_message(filters.command("ifsc"))
-async def ifsc_data(client: Client, message):
-    
-    query = message.text.upper()
+async def ifsc_data(_, message: Message):
+    ifsc_data = message.text.split(" ", 1)
+    if len(ifsc_data) == 1:
+        await message.reply_text("Usage:\n/ifsc [ifsc]")
+        return
+    else:
+        ifsc_data = ifsc_data[1]
+        m = await message.reply_text("Searching...")
     try:
         url_request = req.get(API + query)
         url_json = url_request.json()
@@ -40,5 +45,5 @@ async def ifsc_data(client: Client, message):
 
         await m.edit_text(result, parse_mode=enums.ParseMode.HTML)
     except Exception as e:
-        await message.reply("Sorry ,'"+query+"' is Invalid IFSC Code 😕")
-        await message.reply("if you're facing a error or else ping @shado_hackers 🤝")
+        await m.edit_text("Sorry ,'"+ifsc_data+"' is Invalid IFSC Code 😕")
+        await m.edit_text("if you're facing a error or else ping @shado_hackers 🤝")
