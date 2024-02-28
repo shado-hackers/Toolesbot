@@ -3,6 +3,10 @@ import requests as req
 from plugins.info import head, ibase_url
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from pyrogram import enums
+
+API='https://ifsc.razorpay.com/' 
+head="**Detailed InFo**\n...................\n\n"
  
 
 @Client.on_message(filters.command("ifsc"))
@@ -10,7 +14,7 @@ async def ifsc_data(client: Client, message):
     
     query = message.text.upper()
     try:
-        url_request = req.get(ibase_url + query)
+        url_request = req.get(API + query)
         url_json = url_request.json()
 
         # datas
@@ -32,9 +36,9 @@ async def ifsc_data(client: Client, message):
         bankcd = 'Bank Code :   ' + str(url_json['BANKCODE']) + '\n'
         ifsc = 'IFSC :   ' + str(url_json['IFSC']) + '\n'
 
-        result = head + '' + bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift + ''
+         result f"""head + '' + bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift + """
 
-        await m.edit_text(text, parse_mode=enums.ParseMode.HTML)
+        await m.edit_text(result, parse_mode=enums.ParseMode.HTML)
     except Exception as e:
         await message.reply("Sorry ,'"+query+"' is Invalid IFSC Code 😕")
         await message.reply("if you're facing a error or else ping @shado_hackers 🤝")
