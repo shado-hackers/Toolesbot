@@ -1,41 +1,40 @@
-import asyncio
-import requests
-import json
- 
+from pyrogram import Client
+import requests as req
+from plugins.info import head, ibase_url
 from pyrogram import Client, filters
 from pyrogram.types import Message
+ 
 
 @Client.on_message(filters.command("ifsc"))
-async def ifsc_handler(client: Client, message: Message):
-    # Check if the message contains an IFSC code.
-    if len(message.text) > 1:
-        # Get the IFSC code from the message.
-        ifsc_code = message.text.split(" ")[1]
+async def ifsc_data(client: Client, message):
+    
+    query = message.text.upper()
+    try:
+        url_request = req.get(ibase_url + query)
+        url_json = url_request.json()
 
-        # Make a request to the IFSC API.
-        response = await asyncio.get(f"https://ifsc.razorpay.com/{ifsc_code}")
+        # datas
+        swift = 'Swift :   ' + str(url_json['SWIFT']) + '\n'
+        city = 'City :   ' + str(url_json['CITY']) + '\n'
+        upi = 'UPI :   ' + str(url_json['UPI']) + '\n'
+        iso = 'ISO3166 :   ' + str(url_json['ISO3166']) + '\n'
+        neft = 'NEFT :   ' + str(url_json['NEFT']) + '\n'
+        imps = 'IMPS :   ' + str(url_json['IMPS']) + '\n'
+        rtgs = 'RTGS :   ' + str(url_json['RTGS']) + '\n'
+        centre = 'Centre :   ' + str(url_json['CENTRE']) + '\n'
+        address = 'Address :   ' + str(url_json['ADDRESS']) + '\n\n'
+        branch = 'Branch :   ' + str(url_json['BRANCH']) + '\n'
+        micr = 'MICR :   ' + str(url_json['MICR']) + '\n'
+        contact = 'Contact :   ' + str(url_json['CONTACT']) + '\n'
+        dist = 'District :   ' + str(url_json['DISTRICT']) + '\n'
+        state = 'State :   ' + str(url_json['STATE']) + '\n'
+        bank = 'Bank :   ' + str(url_json['BANK']) + '\n'
+        bankcd = 'Bank Code :   ' + str(url_json['BANKCODE']) + '\n'
+        ifsc = 'IFSC :   ' + str(url_json['IFSC']) + '\n'
 
-        # Parse the response.
-        data = response.json()
+        result = head + '' + bank + bankcd + ifsc + micr + state + dist + city + branch + address + contact + upi + iso + neft + imps + rtgs + swift + ''
 
-        # Format the response.
-        response_text = f"""
-Bank: {data['BANK']}
-Address: {data['ADDRESS']}
-City: {data['CITY']}
-State: {data['STATE']}
-Branch: {data['BRANCH']}
-MICR Code: {data['MICR']}
-UPI: {data['UPI']}
-RTGS: {data['RTGS']}
-NEFT: {data['NEFT']}
-IMPS: {data['IMPS']}
-"""
-
-        # Send the response to the user.
-        await message.reply_text(response_text)
-    else:
-        # If the message does not contain an IFSC code, send an error message.
-        await message.reply_text("Please provide an IFSC code.")
- 
- 
+        await message.reply(result)
+    except Exception as e:
+        await message.reply("Sorry ,'"+query+"' is Invalid IFSC Code 😕")
+        await message.reply("if you're facing a error or else ping @shado_hackers 🤝")
