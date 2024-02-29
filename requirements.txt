@@ -23,7 +23,7 @@ apscheduler
 mutagen
 urllib3
 motor
-openai==1.12.0
+openai==0.28.1
 aiohttp
 Flask
 gunicorn==20.1.0
