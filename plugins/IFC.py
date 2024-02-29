@@ -9,7 +9,7 @@ API='https://ifsc.razorpay.com/'
 head="Detailed InFo\n...................\n\n"
  
 
-@app.on_message(filters.text)
+@Client.on_message(filters.private & filters.text & ~filters.command(['ifsc']))
 async def ifsc_data(client,message):
     
    query=message.text.upper()
