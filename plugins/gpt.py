@@ -22,7 +22,7 @@ async def ai_answer(client, message):
                 users_message = message.text
                 user_id = message.from_user.id
                 response = openai.ChatCompletion.create(
-                    model="gpt-4",
+                    model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system", "content": "You are a helpful assistant."},
                         {"role": "user", "content": users_message}
