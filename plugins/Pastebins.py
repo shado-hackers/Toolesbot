@@ -61,7 +61,7 @@ async def pasty(client, message):
         elif message.reply_to_message.text:
             message_s = message.reply_to_message.text
 
-    ext = "py"
+    ext = "py, txt"
     x = await p_paste(message_s, ext)
     p_link = x["url"]
     p_raw = x["raw"]
