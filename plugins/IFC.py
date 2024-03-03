@@ -40,5 +40,5 @@ async def ifsc_data(client,message):
         
     await message.reply(result)
    except:
-       await message.reply("**__Sorry ,`'"+query+"'` is Invalid IFSC Code 😕__**")
-       await message.reply("__if you're facing a error or else ping @riz4d 🤝__")
+       await message.reply("**is Invalid IFSC Code 😕**")
+       
