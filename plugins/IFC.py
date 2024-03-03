@@ -12,7 +12,7 @@ head="Detailed InFo\n...................\n\n"
 @Client.on_message(filters.text & filters.command(["ifsc"]))
 async def ifsc_data(client,message):
     
-   query=message.text
+   query=message.from_user.id
    try:
     url_request=req.get(API+query)
     url_json=url_request.json()
