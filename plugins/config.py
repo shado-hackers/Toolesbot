@@ -61,4 +61,5 @@ class Config(object):
     DB_NAME = environ.get("DB_NAME", "chatgptvjbot")
     OPENAI_API = environ.get("OPENAI_API", "")
     AI = is_enabled((environ.get("AI","True")), False)
-
+    WEBHOOK = bool(os.environ.get("WEBHOOK", "True"))
+    BOT_UPTIME  = time.time()
