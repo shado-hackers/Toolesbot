@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 import os
 from plugins.config import Config
 
-from pyrogram import Client as xbot
+from pyrogram import Client 
 from pyrogram import filters
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
@@ -47,7 +47,7 @@ class Bot(Client):
             await app.setup()       
             await web.TCPSite(app, "0.0.0.0", 8080).start()     
         print(f"{me.first_name} Is Started.....✨️")
-        for id in Config.ADMIN:
+        for id in Config.OWNER_ID:
             try: await self.send_message(Config.LOG_CHANNEL, f"**{me.first_name}  Is Started.....✨️**")                                
             except: pass
         if Config.LOG_CHANNEL:
