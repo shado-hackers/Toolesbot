@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 import os
-from plugins.config import Config
+from plugins.Config import Config
 
 from pyrogram import Client 
 from pyrogram import filters
